@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-import azapi
 from sentiment_analysis import preprocess_lyrics, analyze_sentiment
 
 # Initialize Flask app
@@ -27,11 +26,15 @@ def lyrics():
     if not artist or not title:
         return jsonify({'error': 'Artist and title are required.'})
 
-    API = azapi.AZlyrics('google', accuracy=0.5)
-    API.artist = artist
-    API.title = title
-    API.getLyrics(save=False, ext='lrc')
-    
+    try:
+        import azapi
+        API = azapi.AZlyrics('google', accuracy=0.5)
+        API.artist = artist
+        API.title = title
+        API.getLyrics(save=False, ext='lrc')
+    except Exception as e:
+        return jsonify({'error': f'Failed to fetch lyrics: {str(e)}. Kindly refresh.'})
+
     song_lyrics = API.lyrics
     if song_lyrics:
         preprocessed_lyrics = preprocess_lyrics(song_lyrics)
@@ -41,6 +44,7 @@ def lyrics():
             'artist': API.artist,
             'lyrics': song_lyrics,
             'sentiment': sentiment,
+            'compound_score': compound_score
         })
     else:
         return jsonify({'error': 'Lyrics not found.'})
