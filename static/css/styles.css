@@ -1,0 +1,107 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#1DB954, black); 
+    font-size: 0.9em !important;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.header, .header p {
+    text-align: center;
+    color: black; /* White color for better contrast against gradient background */
+}
+
+p {
+    font-size: 15px;
+    color: white;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the form container */
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.form-control {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid #1DB954; /* Green border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 15px;
+}
+
+.form-control:focus {
+    border-color: #1DB954; /* Highlight border on focus */
+    box-shadow: 0 0 5px #1DB954; /* Green shadow on focus */
+}
+
+.icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    margin: 0px 10px;
+    font-size: large;
+    color: white;
+}
+
+.song, .suggestion {
+    cursor: pointer;
+    margin-bottom: 15px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
+
+.song:hover, .suggestion:hover {
+    background-color: #444;
+}
+
+.songs-list {
+    margin-top: 15px;
+}
+
+.player {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lyrics {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: justify;
+}
+
+.spinner-border {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 30px;
+    }
+}
