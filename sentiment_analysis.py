@@ -6,16 +6,16 @@ from nltk.stem import WordNetLemmatizer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 # Ensure NLTK resources are available
-# try:
-#     nltk.data.find('corpora/stopwords.zip')
-#     nltk.data.find('tokenizers/punkt.zip')
-#     nltk.data.find('corpora/wordnet.zip')
-#     nltk.data.find('sentiment/vader_lexicon.zip')
-# except LookupError:
-#     nltk.download('stopwords')
-#     nltk.download('punkt')
-#     nltk.download('wordnet')
-#     nltk.download('vader_lexicon')
+try:
+    nltk.data.find('corpora/stopwords.zip')
+    nltk.data.find('tokenizers/punkt.zip')
+    nltk.data.find('corpora/wordnet.zip')
+    nltk.data.find('sentiment/vader_lexicon.zip')
+except LookupError:
+    nltk.download('stopwords')
+    nltk.download('punkt')
+    nltk.download('wordnet')
+    nltk.download('vader_lexicon')
 
 # Extend the list of stopwords
 stop_words = stopwords.words('english')
