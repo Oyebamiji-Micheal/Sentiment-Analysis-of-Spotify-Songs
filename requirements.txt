@@ -1,0 +1,6 @@
+pandas
+nltk
+flask
+gunicorn
+requests
+azapi
