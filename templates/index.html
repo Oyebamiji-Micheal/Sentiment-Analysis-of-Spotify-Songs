@@ -24,8 +24,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8 form-container">
                 <h2><i class="fas fa-music"></i> Popular Songs</h2>
-                <div id="afrobeats-songs" class="songs-list">
-                    {% for song in afrobeats_songs %}
+                <div id="popular-songs" class="songs-list">
+                    {% for song in popular_songs %}
                         <div class="song" data-artist="{{ song.cleaned_artists }}" data-title="{{ song.song_name }}">
                             <p><strong>{{ song.song_name }}</strong> by {{ song.cleaned_artists }}</p>
                         </div>
@@ -33,15 +33,19 @@
                 </div>
 
                 <h2 class="mt-4"><i class="fas fa-search"></i> Check Sentiment of a Song</h2>
-                <form id="search-form" class="mb-4">
+                <form id="search-form" method="POST" class="mb-4">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="artist-search" placeholder="Type artist name...">
+                        <input type="text" class="form-control" id="artist" name="artist" placeholder="Type artist name..." required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title-search" placeholder="Type song title...">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Type song title..." required>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" id="lyrics-search" name="lyrics-search" placeholder="Enter song lyrics..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Search</button>
                 </form>
+                <div id="preprocessed-lyrics" class="lyrics" style="display: none;">Preprocessed Lyrics</div>
                 <div id="lyrics" class="lyrics"></div>
             </div>
         </div>
